@@ -8,15 +8,21 @@ class App extends Component {
     super();
     
     this.state = {
-      monsters: [],
+      projects: [],
       searchField: ''
     }
   }
 
-  componentDidMount(){
+  /* componentDidMount(){
     fetch('https://jsonplaceholder.typicode.com/users')
     .then(response =>response.json())
     .then(users => this.setState({ monsters: users}))
+  } */
+
+  componentDidMount(){
+    fetch('https://api.github.com/users/cskomra/repos')
+    .then(response =>response.json())
+    .then(projects => this.setState({ projects: projects}));
   }
 
   handleChange = (e) => {
@@ -25,19 +31,19 @@ class App extends Component {
 
   render(){
     //const { monsters, searchField} = this.state;
-    const monsters = this.state.monsters;
+    const projects = this.state.projects;
     const searchField = this.state.searchField;
-    const filteredMonsters = monsters.filter( monster => 
+    const filteredprojects = projects.filter( monster => 
       monster.name.toLowerCase().includes(searchField.toLowerCase())
       );
     return (
       <div className="App">
-        <h1>Monsters Rolodex</h1>
+        <h1>Monster Projects</h1>
         <SearchBox 
-          placeholder='search monsters'
+          placeholder='search project names'
           handleChange={this.handleChange}
         />
-        <CardList monsters={filteredMonsters}/>
+        <CardList projects={filteredprojects}/>
       </div>
     );
   }

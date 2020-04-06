@@ -10,9 +10,15 @@ body {
     rgba(7, 27, 82, 1) 0%,
     rgba(0, 128, 128, 1) 100%
   );
+  color: #071b52;
+  /* font-weight: bold; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#description {
+  font-size: 1.25em;
 }
