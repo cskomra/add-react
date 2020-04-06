@@ -13,12 +13,6 @@ class App extends Component {
     }
   }
 
-  /* componentDidMount(){
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response =>response.json())
-    .then(users => this.setState({ monsters: users}))
-  } */
-
   componentDidMount(){
     fetch('https://api.github.com/users/cskomra/repos')
     .then(response =>response.json())
